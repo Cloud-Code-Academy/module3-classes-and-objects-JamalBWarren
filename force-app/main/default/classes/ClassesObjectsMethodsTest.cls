@@ -135,20 +135,22 @@ public with sharing class ClassesObjectsMethodsTest {
         DateTime now = DateTime.now();
         
         // Use the method to get the day of the week
-        String dayOfWeek = ClassesObjectsMethods.getDayOfWeek(now);
+        Integer dayOfWeek = ClassesObjectsMethods.getDayOfWeek(now);
 
         // Assert that the result is not null
         Assert.isNotNull(dayOfWeek, 'Returned day of the week is null');
 
-        Map<String, String> dayNumberToDayString = new Map<String, String>{
-            '1' => 'Monday',
-            '2' => 'Tuesday',
-            '3' => 'Wednesday',
-            '4' => 'Thursday',
-            '5' => 'Friday',
-            '6' => 'Saturday',
-            '7' => 'Sunday'
+        Map<Integer, String> dayNumberToDayString = new Map<Integer, String>{
+            1 => 'Monday',
+            2 => 'Tuesday',
+            3 => 'Wednesday',
+            4 => 'Thursday',
+            5 => 'Friday',
+            6 => 'Saturday',
+            7 => 'Sunday'
         };
+
+        //changed the numbers from string to integer based on the method in the class, wasn't sure if that's what we were supposed to do or if i'm missing something?
 
         // Assert that the returned day number is a valid day of the week
         Assert.isTrue(dayNumberToDayString.keySet().contains(dayOfWeek), 'Returned day of the week ' + dayOfWeek + ' is not valid');
@@ -207,7 +209,7 @@ public with sharing class ClassesObjectsMethodsTest {
 
         // Define the expected result
         String expectedResult = 'Title: A Brief History of Time, Author: Stephen Hawking';
-
+        System.debug(result);
         // Use the Assert class to check that the result matches the expected result
         Assert.areEqual(expectedResult, result, 'The method should return the correct book details');
     }
